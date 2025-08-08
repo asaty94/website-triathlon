@@ -1,148 +1,227 @@
-body {
-    font-family: 'Montserrat', 'Yu Gothic', 'Meiryo', sans-serif;
-    background: linear-gradient(120deg, #f7f8fa 60%, #caf0f8 100%);
-    color: #222;
-    margin: 0;
+/* ========= カラーバリアブル（統一色） ========= */
+:root {
+  --brand-main: #0077b6;      /* メインの濃いブルー */
+  --brand-accent: #00b4d8;    /* 明るいブルー */
+  --brand-accent-light: #90e0ef;
+  --brand-bg-light: #caf0f8;  /* 淡い背景ブルー */
+  --text-main: #222;
+  --text-light: #888;
+  --bg-gradient: linear-gradient(120deg, #f7f8fa 60%, var(--brand-bg-light) 100%);
+  --section-bg: #fff;
 }
+
+/* ========= 全体 ========= */
+body {
+  font-family: 'Montserrat', 'Yu Gothic', 'Meiryo', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  margin: 0;
+}
+
+/* ========= ヘッダー ========= */
 header {
-    background: linear-gradient(90deg, #00b4d8 0%, #48cae4 100%);
-    color: #fff;
-    padding: 2.5rem 0 1.5rem 0;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  background: linear-gradient(90deg, var(--brand-accent) 0%, var(--brand-main) 100%);
+  color: #fff;
+  padding: 2.5rem 0 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 header h1 {
-    font-size: 2.5rem;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
 }
+
+/* ========= ナビゲーション ========= */
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0 0;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: color 0.2s;
-    position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  position: relative;
+  transition: color 0.2s;
 }
 nav a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #90e0ef;
-    transition: width .3s;
-    position: absolute;
-    bottom: -4px;
-    left: 0;
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--brand-accent-light);
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  transition: width .3s;
 }
 nav a:hover::after {
-    width: 100%;
+  width: 100%;
 }
+
+/* ========= セクション共通 ========= */
 section {
-    background: #fff;
-    margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 1.2rem;
-    max-width: 700px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  background: var(--section-bg);
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  max-width: 700px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
 }
 h2 {
-    color: #00b4d8;
-    margin-bottom: 1rem;
-    font-size: 1.7rem;
-    border-bottom: 2px solid #90e0ef;
-    padding-bottom: .5rem;
-    letter-spacing: 0.03em;
+  color: var(--brand-accent);
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  border-bottom: 2px solid var(--brand-accent-light);
+  padding-bottom: .5rem;
+  letter-spacing: 0.03em;
 }
-ul {
-    padding-left: 1.2rem;
-}
+
+/* ========= リンクスタイル ========= */
 .x-link {
-    color: #00b4d8;
-    text-decoration: underline;
-    font-weight: 700;
-    transition: color 0.2s;
+  color: var(--brand-accent);
+  text-decoration: underline;
+  font-weight: 700;
+  transition: color 0.2s;
 }
 .x-link:hover {
-    color: #0077b6;
-}
-footer {
-    text-align: center;
-    padding: 2rem 0 1rem 0;
-    color: #888;
-    background: #e0f7fa;
-    margin-top: 3rem;
-    font-size: 0.95rem;
-}
-@media (max-width: 600px) {
-    section {
-        padding: 1rem;
-        max-width: 98vw;
-    }
-    nav ul {
-        gap: 1rem;
-        font-size: 0.95rem;
-    }
-    header h1 {
-        font-size: 1.6rem;
-    }
+  color: var(--brand-main);
 }
 
+/* ========= フッター ========= */
+footer {
+  text-align: center;
+  padding: 2rem 0 1rem;
+  color: var(--text-light);
+  background: var(--brand-bg-light);
+  margin-top: 3rem;
+  font-size: 0.95rem;
+}
+
+/* ========= メディアクエリ ========= */
+@media (max-width: 600px) {
+  section {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  nav ul {
+    gap: 1rem;
+    font-size: 0.95rem;
+  }
+  header h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ========= フェードインアニメーション ========= */
 .pre-fade {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s cubic-bezier(.77,0,.18,1), transform 1s cubic-bezier(.77,0,.18,1);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(.77,0,.18,1), transform 1s cubic-bezier(.77,0,.18,1);
 }
 .fade-in {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* ========= リスト・テーブル ========= */
 .about-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .about-list li {
-    padding: 0.4em 0;
-    font-size: 1.08em;
-    border-bottom: 1px solid #f0f0f0;
+  padding: 0.4em 0;
+  font-size: 1.08em;
+  border-bottom: 1px solid #f0f0f0;
 }
 .about-list li:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 .about-list strong {
-    color: #00b4d8;
-    font-weight: 700;
-    margin-right: 0.5em;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-right: 0.5em;
 }
-
 .about-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
 }
 .about-table th, .about-table td {
-    text-align: left;
-    padding: 0.5em 0.7em 0.5em 0;
-    font-size: 1.08em;
-    vertical-align: top;
+  text-align: left;
+  padding: 0.5em 0.7em 0.5em 0;
+  font-size: 1.08em;
+  vertical-align: top;
 }
 .about-table th {
-    color: #00b4d8;
-    font-weight: 700;
-    white-space: nowrap;
-    width: 7em;
+  color: var(--brand-accent);
+  font-weight: 700;
+  white-space: nowrap;
+  width: 7em;
 }
 .about-table tr:not(:last-child) td,
 .about-table tr:not(:last-child) th {
-    border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* ========= 月ごとの進め方 ========= */
+.schedule {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+.schedule-item {
+  background: #fff;
+  border: 1px solid #e6e3da;
+  border-radius: 14px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.schedule-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+}
+/* scheduleの月をシンプル表示に */
+.schedule-item {
+  background: #fff;
+  border: 1px solid #e6e3da;
+  border-radius: 14px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;             /* 月と本文の間隔を少し狭める */
+}
+
+.schedule-item .month {
+  display: inline-block;
+  width: 3em;              /* 固定幅（1桁・2桁でも揃う） */
+  text-align: right;       /* 数字を右寄せ */
+  color: var(--brand-main);
+  font-weight: 800;
+  letter-spacing: .05em;
+  white-space: nowrap;
+}
+
+.schedule-item .month::after {
+  content: "：";
+  margin-left: 0.15em;
+  color: #94a3b8;
+}
+
+
+.schedule-item .task {
+  flex: 1;
+  font-weight: 600;
+  color: var(--text-main);
 }
